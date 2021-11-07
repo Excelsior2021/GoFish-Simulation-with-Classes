@@ -62,13 +62,17 @@ def deal_card(asker_hand, asker_pairs, game_deck):
                         asker_pairs.append(card_1)
                         asker_hand.remove(card_1)
                         break
-                    else:
-                        asker_hand.append(pick)
-                        break
+                if pick not in asker_pairs:
+                    asker_hand.append(pick)
         else:
             asker_hand.append(pick)
 
-def again(asker_hand, askee_hand, asker_pairs):
-    '''Calls ask_value if player is to play again.'''
-    if ask_value or deal_card:
+def turn(asker_hand, askee_hand, asker_pairs, game_deck):
+    ask_value(asker_hand, askee_hand, asker_pairs)
+    pairs(asker_hand, asker_pairs)
+    if ask_value:
+        ask_value(asker_hand, askee_hand, asker_pairs)
+    deal_card(asker_hand, asker_pairs, game_deck)
+    pairs(asker_hand, asker_pairs)
+    if deal_card:
         ask_value(asker_hand, askee_hand, asker_pairs)
