@@ -16,7 +16,7 @@ player1_pairs = initial_pairs(player1_cards)
 player2_pairs = initial_pairs(player2_cards)
 
 #Loop of game. Players taking turns based on rules.
-while len(game_deck) > 0 and len(player1_cards) > 0 or len(player2_cards) > 0:
+while len(game_deck) > 0 and len(player1_cards) > 0 and len(player2_cards) > 0:
 
     #player1 turn.
     player1_turn = turn(player1_cards, player2_cards, player1_pairs, game_deck)

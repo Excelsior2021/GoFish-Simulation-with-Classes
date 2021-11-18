@@ -43,9 +43,8 @@ class Deck():
         '''Returns a set of cards from a deck. Amount based on hand size.'''
         hand = []
         while len(hand) < int(hand_size):
-            pick = choice(self.shuffle_deck(deck))
-            hand.append(pick)
-            deck.remove(pick)
+            card = self.deal_top_card(deck)
+            hand.append(card)
         return hand
 
     def deal_hands(self, hand_size, num_hands=1):
