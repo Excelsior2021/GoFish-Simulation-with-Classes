@@ -15,14 +15,17 @@ print(f'Player2 original hand: {player2_cards}\n')
 player1_pairs = initial_pairs(player1_cards)
 player2_pairs = initial_pairs(player2_cards)
 
+player_1_asked = []
+player_2_asked = []
+
 #Loop of game. Players taking turns based on rules.
 while len(game_deck) > 0 and len(player1_cards) > 0 and len(player2_cards) > 0:
 
     #player1 turn.
-    player1_turn = turn(player1_cards, player2_cards, player1_pairs, game_deck)
+    player1_turn = turn(player1_cards, player2_cards, player1_pairs, game_deck, player_1_asked)
 
     #player2 turn.
-    player2_turn = turn(player2_cards, player1_cards, player2_pairs, game_deck)
+    player2_turn = turn(player2_cards, player1_cards, player2_pairs, game_deck, player_2_asked)
 
 #Players pairs.
 print(f'Player1 pairs: {player1_pairs}\n')
